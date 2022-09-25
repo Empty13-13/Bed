@@ -1,0 +1,27 @@
+.spoilers {
+  
+  &__head {
+    background: #92D7EF;
+    border-radius: 10px;
+    padding: 28px 20px;
+    
+    &:after {
+      content: '';
+      border: 13px solid transparent;
+      border-top: 20px solid #F9ACBB;
+    }
+    
+  }
+}
+
+.body-spoilers {
+  
+  &__body {
+  }
+  
+  &__text {
+  }
+  
+  &__list {
+  }
+}

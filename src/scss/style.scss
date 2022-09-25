@@ -1,0 +1,128 @@
+* {
+  outline: none;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  
+  li {
+    list-style-type: none;
+  }
+}
+
+ol {
+  padding: 0;
+  counter-reset: section;
+  
+  li:before {
+    counter-increment: section;
+    content: counter(section) ".";
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #242B33;
+    display: inline-block;
+  }
+}
+
+.spoilers {
+  
+  & > li {
+    background: rgba(146, 215, 239, 0.25);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__head {
+    background: #92D7EF;
+    border-radius: 10px;
+    padding: 28px 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: start;
+    position: relative;
+    cursor: pointer;
+    color: #0F7E9B;
+    transition: all 0.2s ease 0s;
+    border: none;
+    overflow: hidden;
+    display: flex;
+    padding-right: 68px;
+    
+    &:after {
+      content: '';
+      border: 13px solid transparent;
+      border-top: 20px solid #F9ACBB;
+      position: absolute;
+      right: 33px;
+      top: 50%;
+      transform: translateY(-25%);
+      transition: all 0.2s ease 0s;
+    }
+    
+    &._spoller-active {
+      background: transparent;
+      
+      &:after {
+        border-top: 20px solid #92D7EF;
+        transform: translateY(-50%) rotate(-180deg);
+      }
+    }
+  }
+}
+
+.body-spoilers {
+  
+  &__body {
+    padding: 28px 20px;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      width: calc(100% - 40px);
+      height: 1px;
+      background: rgba(36, 43, 51, 0.5);
+      left: 20px;
+      top: 0;
+    }
+  }
+  
+  &__text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #242B33;
+    display: inline-block;
+  }
+  
+  &__list {
+  }
+}
+
+@media (max-width: 640px) {
+  .spoilers {
+    
+    &__head {
+      font-size: 18px;
+      padding: 20px 12px;
+      padding-right: 68px;
+    }
+  }
+}
